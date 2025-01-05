@@ -2,5 +2,5 @@ package Utils;
 
 public class PracticeFormLocators {
         String practiceForm;
-        Integer number;
+        Integer number = 90;
 }
