@@ -70,6 +70,7 @@ public class PracticeFormTests {
         WebElement musicRadioButton = driver.findElement(By.xpath("//label[@for='hobbies-checkbox-3']"));
 
 
+
         List<WebElement> activityList = new ArrayList<>();
         activityList.add(sportRadioButton);
         activityList.add(readingRadioButton);
