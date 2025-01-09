@@ -6,6 +6,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 import static Utils.Utils.getAlphaNumericString;
 import static Utils.Utils.randomNumber;
@@ -48,35 +50,31 @@ public class PracticeFormTests {
         WebElement femaleRadioButtom = driver.findElement(By.xpath("//label[@for='gender-radio-2']"));
         WebElement otherMaleRadioButtom = driver.findElement(By.xpath("//label[@for='gender-radio-3']"));
 
-        String genderValue = "Other";
-        if (genderValue.equals("Male")) {
-            maleRadioButtom.click();
-        } else if (genderValue.equals("Female")) {
-            femaleRadioButtom.click();
-        } else if (genderValue.equals("Other")) {
-            otherMaleRadioButtom.click();
-        }
+        List<WebElement> genderList = new ArrayList<>();
+        genderList.add(maleRadioButtom);
+        genderList.add(femaleRadioButtom);
+        genderList.add(otherMaleRadioButtom);
+        elementsMethods.selectElementFromListByText(genderList,"Male");
+
 
         WebElement phoneNumberField = driver.findElement(By.cssSelector("input[placeholder='Mobile Number']"));
         elementsMethods.fillElement(phoneNumberField, "0333456543");
 
         WebElement subjectField = driver.findElement(By.id("subjectsInput"));
-        String subjectValue = "Social";
-        subjectField.sendKeys(subjectValue);
+        elementsMethods.fillElement(subjectField,"Social");
+
         subjectField.sendKeys(Keys.ENTER);
 
         WebElement sportRadioButton = driver.findElement(By.xpath("//label[@for='hobbies-checkbox-1']"));
         WebElement readingRadioButton = driver.findElement(By.xpath("//label[@for='hobbies-checkbox-2']"));
         WebElement musicRadioButton = driver.findElement(By.xpath("//label[@for='hobbies-checkbox-3']"));
 
-//        String hobbiesValue = "Sports";
-//        if (hobbiesValue.equals("Sports")) {
-//            sportRadioButton.click();
-//        } else if (hobbiesValue.equals("Reading")) {
-//            readingRadioButton.click();
-//        } else if (hobbiesValue.equals("Music")) {
-//            musicRadioButton.click();
-//        }
+
+        List<WebElement> activityList = new ArrayList<>();
+        activityList.add(sportRadioButton);
+        activityList.add(readingRadioButton);
+        activityList.add(musicRadioButton);
+        elementsMethods.selectElementFromListByText(activityList,"Sport");
 
         WebElement addPicture = driver.findElement(By.id("uploadPicture"));
         elementsMethods.uploadPhotos(addPicture);
