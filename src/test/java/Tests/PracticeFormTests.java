@@ -1,11 +1,11 @@
 package Tests;
 
+import HelperMethods.ElementsMethods;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
 import java.io.File;
-import java.util.Random;
 
 import static Utils.Utils.getAlphaNumericString;
 import static Utils.Utils.randomNumber;
@@ -13,9 +13,10 @@ import static Utils.Utils.generateRandomEmailAddress;
 
 public class PracticeFormTests {
     public WebDriver driver;
-
+    public ElementsMethods elementsMethods;
     @Test
     public void practiceFormAutomationMethod() {
+
         // open a browser
         driver = new ChromeDriver();
 
@@ -25,24 +26,23 @@ public class PracticeFormTests {
         // maximize browser
         driver.manage().window().maximize();
 
+        elementsMethods = new ElementsMethods(driver);
+
         // declare an element
         WebElement formField = driver.findElement(By.xpath("//h5[text()='Forms']"));
-        formField.click();
+        elementsMethods.clickOnElement(formField);
 
         WebElement practiceForm = driver.findElement(By.xpath("//span[text()='Practice Form']"));
-        practiceForm.click();
+        elementsMethods.clickOnElement(practiceForm);
 
         WebElement firstNameField = driver.findElement(By.id("firstName"));
-//        String firstNameValue = "Joe";
-        firstNameField.sendKeys(getAlphaNumericString(6));
+        elementsMethods.fillElement(firstNameField, "Joe");
 
         WebElement lastNameField = driver.findElement(By.id("lastName"));
-//        String lastNameValue = "Doe";
-        lastNameField.sendKeys(getAlphaNumericString(8));
+        elementsMethods.fillElement(lastNameField, "Doe");
 
         WebElement emailField = driver.findElement(By.id("userEmail"));
-        String emailValue = "email@domain.com";
-        emailField.sendKeys(generateRandomEmailAddress(10));
+        elementsMethods.fillElement(emailField, "email@domain.com");
 
         WebElement maleRadioButtom = driver.findElement(By.xpath("//label[@for='gender-radio-1']"));
         WebElement femaleRadioButtom = driver.findElement(By.xpath("//label[@for='gender-radio-2']"));
@@ -58,7 +58,7 @@ public class PracticeFormTests {
         }
 
         WebElement phoneNumberField = driver.findElement(By.cssSelector("input[placeholder='Mobile Number']"));
-        phoneNumberField.sendKeys(randomNumber());
+        elementsMethods.fillElement(phoneNumberField, "0333456543");
 
         WebElement subjectField = driver.findElement(By.id("subjectsInput"));
         String subjectValue = "Social";
@@ -78,12 +78,11 @@ public class PracticeFormTests {
 //            musicRadioButton.click();
 //        }
 
-        WebElement pictureButton = driver.findElement(By.id("uploadPicture"));
-        File file = new File("src/test/resources/Picture1.png");
-        pictureButton.sendKeys(file.getAbsolutePath());
+        WebElement addPicture = driver.findElement(By.id("uploadPicture"));
+        elementsMethods.uploadPhotos(addPicture);
 
-        WebElement addresField = driver.findElement(By.id("currentAddress"));
-        addresField.sendKeys(getAlphaNumericString(30));
+        WebElement addressField = driver.findElement(By.id("currentAddress"));
+        elementsMethods.fillElement(addressField,"Random Address");
 
 //        scrollDown();
         WebElement stateField = driver.findElement(By.id("react-select-3-input"));
@@ -100,7 +99,7 @@ public class PracticeFormTests {
         cityField.sendKeys(Keys.ENTER);
 
         WebElement submitButton= driver.findElement(By.id("submit"));
-        submitButton.click();
+        elementsMethods.clickOnElement(submitButton);
 
         //        WebElement birthDateField = driver.findElement(By.id("dateOfBirthInput"));
 
