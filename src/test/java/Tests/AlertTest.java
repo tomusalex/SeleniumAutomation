@@ -2,6 +2,7 @@ package Tests;
 
 import HelperMethods.ElementsMethods;
 import HelperMethods.JavaScriptMethods;
+import HelperMethods.WindowsMethods;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -14,6 +15,7 @@ public class AlertTest {
     public WebDriver driver;
     public ElementsMethods elementsMethods;
     public JavaScriptMethods javaScriptMethods;
+    public WindowsMethods windowsMethods;
 
     @Test
     public void alertAutomationMethod() {
@@ -21,16 +23,16 @@ public class AlertTest {
         // open a browser
         driver = new ChromeDriver();
         elementsMethods = new ElementsMethods(driver);
-        javaScriptMethods = new JavaScriptMethods();
+        windowsMethods =new WindowsMethods(driver);
 
         // accesing a web page
         driver.get("https://demoqa.com/");
 
         // wait implicit
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        windowsMethods.implicitWait();
 
         // maximize browser
-        driver.manage().window().maximize();
+        windowsMethods.maximizeWindows();
 
         // declare an element
         WebElement alertsFrameWindowsField = driver.findElement(By.xpath("//h5[text()='Alerts, Frame & Windows']"));
@@ -67,12 +69,10 @@ public class AlertTest {
 
         //On button click, prompt box will appear
         WebElement promtButton = driver.findElement(By.id("promtButton"));
-        javaScriptMethods.forceClick(promtButton);
-//        elementsMethods.clickOnElement(promtButton);
+        elementsMethods.clickOnElement(promtButton);
         Alert alertPromt = driver.switchTo().alert();
         alertPromt.sendKeys("Hello World!");
         alertPromt.accept();
-
-
+        driver.close();
     }
 }

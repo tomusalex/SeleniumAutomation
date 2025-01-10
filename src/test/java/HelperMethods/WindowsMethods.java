@@ -2,6 +2,7 @@ package HelperMethods;
 
 import org.openqa.selenium.WebDriver;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,11 +35,21 @@ public class WindowsMethods {
         close();
     }
 
+    public void closeDriver(){
+        driver.close();
+    }
+
     public void closeWindows(){
         close();
     }
     public void switchToMainWindows(){
         switchToMain();
+    }
+    public void implicitWait(){
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+    }
+    public void maximizeWindows(){
+        driver.manage().window().maximize();
     }
 
     public void switchToMain(){
