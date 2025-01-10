@@ -44,7 +44,7 @@ public class BrowserWindowsTab {
         // new tab
         WebElement newTabButton = driver.findElement(By.id("tabButton"));
         elementsMethods.clickOnElement(newTabButton);
-        // change focus from the new tab
+        // change focus to the new tab
         windowsMethods.switchToOpenedTab();
         WebElement samplePageElement = driver.findElement(By.id("sampleHeading"));
         System.out.println("The text from the new tab is:"+ samplePageElement.getText());

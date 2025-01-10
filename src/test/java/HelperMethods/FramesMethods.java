@@ -12,7 +12,7 @@ public class FramesMethods {
 
     public void switchToFrames(WebElement element){
         // schimba focusul de pe un frame anume
-        driver.switchTo().defaultContent();
+        driver.switchTo().frame(element);
     }
 
     public void switchToMainContent(){
