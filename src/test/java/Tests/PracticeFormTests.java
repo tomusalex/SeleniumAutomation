@@ -1,6 +1,7 @@
 package Tests;
 
 import HelperMethods.ElementsMethods;
+import HelperMethods.WindowsMethods;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
@@ -16,6 +17,7 @@ import static Utils.Utils.generateRandomEmailAddress;
 public class PracticeFormTests {
     public WebDriver driver;
     public ElementsMethods elementsMethods;
+    public WindowsMethods windowsMethods;
     @Test
     public void practiceFormAutomationMethod() {
 
@@ -101,7 +103,7 @@ public class PracticeFormTests {
         elementsMethods.clickOnElement(submitButton);
 
         //        WebElement birthDateField = driver.findElement(By.id("dateOfBirthInput"));
-
+        driver.close();
     }
 
 
