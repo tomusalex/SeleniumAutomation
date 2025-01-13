@@ -21,7 +21,7 @@ public class AlertTest {
         // open a browser
         driver = new ChromeDriver();
         elementsMethods = new ElementsMethods(driver);
-        javaScriptMethods = new JavaScriptMethods();
+//        javaScriptMethods = new JavaScriptMethods();
 
         // accesing a web page
         driver.get("https://demoqa.com/");
