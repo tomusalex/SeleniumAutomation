@@ -4,11 +4,11 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class JavaScriptMethods {
+public class JavaScriptHelpers {
     WebDriver driver;
     JavascriptExecutor javascriptExecutor;
 
-    public JavaScriptMethods(JavascriptExecutor javascriptExecutor) {
+    public JavaScriptHelpers(JavascriptExecutor javascriptExecutor) {
         this.javascriptExecutor = javascriptExecutor;
         this.javascriptExecutor = (JavascriptExecutor) driver;
     }

@@ -1,7 +1,7 @@
 package Tests;
 
 import HelperMethods.ElementsMethods;
-import HelperMethods.JavaScriptMethods;
+import HelperMethods.JavaScriptHelpers;
 import HelperMethods.WindowsMethods;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -10,14 +10,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
-import java.sql.SQLOutput;
-import java.util.ArrayList;
-import java.util.List;
-
 public class BrowserWindowsTab {
     public WebDriver driver;
     public WindowsMethods windowsMethods;
-    public JavaScriptMethods javaScriptMethods;
+    public JavaScriptHelpers javaScriptMethods;
     public ElementsMethods elementsMethods;
     @Test
     public void automationMethod(){

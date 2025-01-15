@@ -6,13 +6,8 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-
-import static Utils.Utils.getAlphaNumericString;
-import static Utils.Utils.randomNumber;
-import static Utils.Utils.generateRandomEmailAddress;
 
 public class PracticeFormTests {
     public WebDriver driver;
@@ -23,6 +18,7 @@ public class PracticeFormTests {
 
         // open a browser
         driver = new ChromeDriver();
+        elementsMethods = new ElementsMethods(driver);
 
         // accesing a web page
         driver.get("https://demoqa.com/");
@@ -30,14 +26,12 @@ public class PracticeFormTests {
         // maximize browser
         driver.manage().window().maximize();
 
-        elementsMethods = new ElementsMethods(driver);
-
         // declare an element
-        WebElement formField = driver.findElement(By.xpath("//h5[text()='Forms']"));
-        elementsMethods.clickOnElement(formField);
+        List<WebElement> fieldsList = driver.findElements(By.xpath("//h5"));
+        elementsMethods.selectElementFromListByText(fieldsList, "Forms");
 
-        WebElement practiceForm = driver.findElement(By.xpath("//span[text()='Practice Form']"));
-        elementsMethods.clickOnElement(practiceForm);
+        List <WebElement> elementsTable = driver.findElements(By.xpath("//span[@class='text']"));
+        elementsMethods.selectElementFromListByText(elementsTable,"Practice Form");
 
         WebElement firstNameField = driver.findElement(By.id("firstName"));
         elementsMethods.fillElement(firstNameField, "Joe");

@@ -2,7 +2,7 @@ package Tests;
 
 import HelperMethods.ElementsMethods;
 import HelperMethods.FramesMethods;
-import HelperMethods.JavaScriptMethods;
+import HelperMethods.JavaScriptHelpers;
 import HelperMethods.WindowsMethods;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -11,14 +11,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
-import java.sql.SQLOutput;
-
 public class FramesTest {
     WebDriver driver;
     ElementsMethods elementsMethods;
     FramesMethods framesMethods;
     WindowsMethods windowsMethods;
-    JavaScriptMethods javaScriptMethods;
+    JavaScriptHelpers javaScriptMethods;
 
     @Test
     public void automationMethod() throws InterruptedException {

@@ -1,7 +1,7 @@
 package Tests;
 
 import HelperMethods.ElementsMethods;
-import HelperMethods.JavaScriptMethods;
+import HelperMethods.JavaScriptHelpers;
 import HelperMethods.WindowsMethods;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -14,7 +14,7 @@ import java.time.Duration;
 public class AlertTest {
     public WebDriver driver;
     public ElementsMethods elementsMethods;
-    public JavaScriptMethods javaScriptMethods;
+    public JavaScriptHelpers javaScriptMethods;
     public WindowsMethods windowsMethods;
 
     @Test
